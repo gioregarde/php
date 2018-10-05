@@ -88,13 +88,13 @@ Name | Description
 
 Operator | Description | Example
 ---------|-------------|--------
-+ | Addition |a + b = 30
-- | Subtraction | a - b = -10
-* | Multiplication | a * b = 200
-/ | Dividision | b / a = 2
-% | Modulus Operator | b % a = 0
-++ | Increment by one | a++ = 11
--- | Decrement by one | a-- = 9
+\+ | Addition |a + b = 30
+\- | Subtraction | a - b = -10
+\* | Multiplication | a * b = 200
+\/ | Dividision | b / a = 2
+\% | Modulus Operator | b % a = 0
+\++ | Increment by one | a++ = 11
+\-- | Decrement by one | a-- = 9
 
 ### comparison operators : assume a = 10 and b = 20.
 
@@ -102,10 +102,10 @@ Operator | Description | Example
 ---------|-------------|--------
 == | equal | A == B is false
 != |not equal | A != B is true
-> | greater than | A > B is false
-< | less than | A < B is true
->= | greater than or equal | A >= B is false
-<= | less than or equal | A <= B is true
+\> | greater than | A > B is false
+\< | less than | A < B is true
+\>= | greater than or equal | A >= B is false
+\<= | less than or equal | A <= B is true
 
 ### logical operators : assume a = true and b = false.
 
