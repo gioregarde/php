@@ -84,6 +84,12 @@ Name | Description
 \_\_METHOD\_\_ | class method
 \_\_NAMESPACE\_\_ | current namespace
 
+### additional constants
+
+Name | Description
+-----|------------
+PHP_EOL | correct 'End Of Line' symbol for this platform
+
 ### arithmetic operators : assume a = 10 and b = 20.
 
 Operator | Description | Example
@@ -210,4 +216,14 @@ foreach (array as key => value) {
 * search for string (return index)
 ```php
     echo strpos("Hello world!", "world");
+```
+
+* returns portion of string
+```php
+    echo substr('Hello world!',  0,  2);  // returns "He"
+    echo substr('Hello world!',  0, -2);  // returns "Hello worl"
+    echo substr('Hello world!',  2,  2);  // returns "ll"
+    echo substr('Hello world!',  2, -2);  // returns "llo worl"
+    echo substr('Hello world!', -2,  2);  // returns "d!"
+    echo substr('Hello world!', -3, -1);  // returns "ld"
 ```
