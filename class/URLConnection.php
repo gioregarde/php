@@ -32,7 +32,7 @@ class URLConnection {
      * @param object $is_https  - is secure connection
      * @return object $response - response object
      */
-    function sendGetRequest($url, $params = array(), $is_https = false) {
+    static function sendGetRequest($url, $params = array(), $is_https = false) {
         return self::sendRequest($url, self::METHOD_GET, $params, array(), $is_https);
     }
 
@@ -45,7 +45,7 @@ class URLConnection {
      * @param object $is_https  - is secure connection
      * @return object $response - response object
      */
-    function sendPostRequest($url, $params = array(), $headers = array(), $is_https = false) {
+    static function sendPostRequest($url, $params = array(), $headers = array(), $is_https = false) {
         return self::sendRequest($url, self::METHOD_POST, $params, $headers, $is_https);
     }
 
@@ -58,7 +58,7 @@ class URLConnection {
      * @param object $is_https  - is secure connection
      * @return object $response - response object
      */
-    function sendPutRequest($url, $params = array(), $headers = array(), $is_https = false) {
+    static function sendPutRequest($url, $params = array(), $headers = array(), $is_https = false) {
         return self::sendRequest($url, self::METHOD_PUT, $params, $headers, $is_https);
     }
 
@@ -71,7 +71,7 @@ class URLConnection {
      * @param object $is_https  - is secure connection
      * @return object $response - response object
      */
-    function sendDeleteRequest($url, $params = array(), $headers = array(), $is_https = false) {
+    static function sendDeleteRequest($url, $params = array(), $headers = array(), $is_https = false) {
         return self::sendRequest($url, self::METHOD_DELETE, $params, $headers, $is_https);
     }
 
@@ -85,7 +85,7 @@ class URLConnection {
      * @param object $is_https  - is secure connection
      * @return object $response - response object
      */
-    function sendRequest($url, $method = self::METHOD_GET, $params = array(), $headers = array(), $is_https = false) {
+    static function sendRequest($url, $method = self::METHOD_GET, $params = array(), $headers = array(), $is_https = false) {
         $response = array();
 
         if (strpos($url, self::HTTPS) !== false) {
