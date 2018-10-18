@@ -57,8 +57,51 @@ class ObjectUtil {
     }
 
     /**
+     * creates class with contents from array
+     *
+     * @param array $array        - data to copy
+     * @param string $class_name  - class to instantiate
+     * @param boolean $greedy
+     * @return Object
+     */
+    static function arrayToObjectClass($array, $class_name = null, $greedy = true) {
+        $json_str = json_encode($array, JSON_PRETTY_PRINT);
+        return self::jsonStringToObjectClass($json_str, $class_name, $greedy);
+    }
+
+    /**
+     * creates class with contents from json string
+     * TODO if class has constructor
+     *
+     * @param string $json_str    - data to copy
+     * @param string $class_name  - class to instantiate
+     * @param boolean $greedy
+     * @return Object
+     */
+    static function jsonStringToObjectClass($json_str, $class_name = null, $greedy = true) {
+        if (!isset($class_name) || !class_exists($class_name)) {
+            return json_decode($json_str);
+        }
+
+        $json = json_decode($json_str);
+        if ($greedy) {
+            foreach ($json as $key => $value) {
+                if (is_object($value)) {
+                    $array = get_object_vars($value);
+                    $json->{$key} = self::arrayToObjectClass(get_object_vars($value), ucfirst($key), $greedy);
+                }
+            }
+        }
+
+        $class = new $class_name();
+        self::copy($class, $json);
+        return $class;
+    }
+
+    /**
      * copy object property values
      * TODO method for boolean (is)
+     * TODO check if greedy is good for copy
      *
      * @param object $dest - object destination
      * @param object $src  - object source
